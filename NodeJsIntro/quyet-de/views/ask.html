@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
   <h1>Hãy hỏi cộng đồng 1 câu hỏi đúng/sai hoặc có/không</h1>
-  <form action="/add-question" method="POST"> 
-    <textarea name="question" id="text-area" cols="30" rows="10"></textarea>
+  <form action="/add-question" method="POST">
+    <textarea maxlength="200" name="question" id="text-area" cols="30" rows="10"></textarea>
     <span id="count-down">0/200</span>
-    <input type="submit">  
+    <input type="submit">
   </form>
 
   <script>
     let countDown = document.getElementById("count-down")
     let textArea = document.getElementById("text-area")
-    textArea.onchange = onChangeHandler 
-
-    function onChangeHandler(){
+    textArea.onchange = onChangeHandler
+    function onChangeHandler() {
       let count = 0
-      let question = textArea.value 
-      for(let i = 0;i<question.length;i++){
+      let question = textArea.value
+      for (let i = 0; i < question.length; i++) {
         count += 1
         countDown.innerHTML = `${count}/200`
       }
     }
-    
+
   </script>
 
 </body>
+
 </html>
